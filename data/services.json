@@ -1,0 +1,105 @@
+{
+  "services": [
+    {
+      "id": "ext-flat-classic",
+      "slug": "lash-flat-classic",
+      "name": "플랫모 클래식 연장",
+      "category": "EYELASH",
+      "subCategory": "EXTENSION",
+      "priceKrw": 50000,
+      "durationMinutes": 90,
+      "description": "자연스러운 데일리 룩을 위한 클래식 연장."
+    },
+    {
+      "id": "ext-mascara",
+      "slug": "lash-mascara",
+      "name": "마스카라 연장",
+      "category": "EYELASH",
+      "subCategory": "EXTENSION",
+      "priceKrw": 50000,
+      "durationMinutes": 90,
+      "description": "마스카라를 바른 듯한 풍성한 컬."
+    },
+    {
+      "id": "ext-double",
+      "slug": "lash-double",
+      "name": "더블 연장",
+      "category": "EYELASH",
+      "subCategory": "EXTENSION",
+      "priceKrw": 60000,
+      "durationMinutes": 100,
+      "description": "이중 가닥으로 깊이 있는 음영감."
+    },
+    {
+      "id": "ext-volume",
+      "slug": "lash-volume",
+      "name": "볼륨 연장",
+      "category": "EYELASH",
+      "subCategory": "EXTENSION",
+      "priceKrw": 65000,
+      "durationMinutes": 120,
+      "description": "풍성하고 화려한 볼륨 라인."
+    },
+    {
+      "id": "ext-remove-other",
+      "slug": "lash-remove-other",
+      "name": "타샵 제거",
+      "category": "EYELASH",
+      "subCategory": "REMOVAL",
+      "priceKrw": 10000,
+      "durationMinutes": 20,
+      "description": "다른 샵에서 시술한 연장 제거."
+    },
+    {
+      "id": "ext-remove-self",
+      "slug": "lash-remove-self",
+      "name": "자샵 제거",
+      "category": "EYELASH",
+      "subCategory": "REMOVAL",
+      "priceKrw": 5000,
+      "durationMinutes": 15,
+      "description": "본 샵 연장 제거."
+    },
+    {
+      "id": "perm-signature",
+      "slug": "perm-signature",
+      "name": "시그니처펌 (노글루)",
+      "category": "EYELASH",
+      "subCategory": "PERM",
+      "priceKrw": 35000,
+      "durationMinutes": 60,
+      "description": "글루 없이 안전한 시그니처 컬링."
+    },
+    {
+      "id": "perm-clinic",
+      "slug": "perm-clinic",
+      "name": "클리닉 펌",
+      "category": "EYELASH",
+      "subCategory": "PERM",
+      "priceKrw": 40000,
+      "durationMinutes": 70,
+      "description": "케어와 함께 진행되는 펌."
+    },
+    {
+      "id": "perm-black-tint",
+      "slug": "perm-black-tint",
+      "name": "블랙틴팅 펌",
+      "category": "EYELASH",
+      "subCategory": "PERM",
+      "priceKrw": 45000,
+      "durationMinutes": 80,
+      "description": "또렷한 눈매를 위한 블랙틴팅 포함."
+    }
+  ],
+  "options": [
+    { "id": "opt-doug-brown", "name": "더그 브라운", "priceKrw": 10000, "appliesTo": "EXTENSION" },
+    { "id": "opt-point-lash", "name": "포인트 레쉬", "priceKrw": 10000, "appliesTo": "EXTENSION" },
+    { "id": "opt-keratin", "name": "케라틴", "priceKrw": 5000, "appliesTo": "PERM" },
+    { "id": "opt-black-tint", "name": "블랙틴트", "priceKrw": 5000, "appliesTo": "PERM" }
+  ],
+  "categoryNotes": {
+    "EXTENSION": "더그 브라운 or 포인트 레쉬 +10,000",
+    "PERM": "케라틴 or 블랙틴트 +5,000",
+    "REMOVAL": ""
+  }
+}

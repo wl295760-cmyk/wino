@@ -1,0 +1,117 @@
+// 위노뷰티 청주 뷰티샵 - Prisma Schema
+// MVP: SQLite (로컬 개발). 프로덕션 배포 시 Postgres로 전환 예정.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// SQLite는 enum 미지원 → string + 주석으로 허용값 명시
+// ServiceCategory: EYELASH | NAIL | SKIN | WAXING | MAKEUP | OTHER
+// ReservationStatus: PENDING | CONFIRMED | CANCELLED | COMPLETED | NO_SHOW
+// AdminRole: OWNER | STAFF
+
+model Service {
+  id              String        @id @default(cuid())
+  name            String
+  slug            String        @unique
+  category        String        // ServiceCategory
+  description     String?
+  durationMinutes Int
+  priceKrw        Int
+  imageUrl        String?
+  isActive        Boolean       @default(true)
+  displayOrder    Int           @default(0)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  reservations    Reservation[]
+
+  @@index([category, isActive])
+  @@index([slug])
+}
+
+model Customer {
+  id           String        @id @default(cuid())
+  name         String
+  phone        String        @unique
+  email        String
+  memo         String?
+  marketingOk  Boolean       @default(false)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  reservations Reservation[]
+
+  @@index([phone])
+}
+
+model Reservation {
+  id           String    @id @default(cuid())
+  shortCode    String    @unique
+
+  customerId   String
+  customer     Customer  @relation(fields: [customerId], references: [id])
+
+  serviceId    String
+  service      Service   @relation(fields: [serviceId], references: [id])
+
+  startAt      DateTime
+  endAt        DateTime
+
+  status       String    @default("PENDING")  // ReservationStatus
+  notes        String?
+  cancelReason String?
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  confirmedAt  DateTime?
+  cancelledAt  DateTime?
+  completedAt  DateTime?
+
+  @@index([startAt, status])
+  @@index([customerId])
+  @@index([shortCode])
+}
+
+model BusinessHour {
+  id         String   @id @default(cuid())
+  dayOfWeek  Int      @unique
+  openTime   String
+  closeTime  String
+  isClosed   Boolean  @default(false)
+}
+
+model Holiday {
+  id     String   @id @default(cuid())
+  date   DateTime @unique
+  reason String?
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         String    @default("OWNER")  // AdminRole
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  entityType String
+  entityId   String
+  action     String
+  actorType  String
+  actorId    String?
+  changes    String?  // JSON 직렬화된 문자열
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-primary: #f5f1ed;
+  --color-bg-surface: #ffffff;
+  --color-bg-warm: #faf6f2;
+  --color-ink-primary: #6b5d52;
+  --color-ink-secondary: #8b7d72;
+  --color-border: #6b5d52;
+  --color-border-soft: #d4ccc4;
+  --color-accent-gold: #c9a96e;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-ink-primary);
+    line-height: 1.8;
+    font-family: var(--font-nanum-myeongjo), var(--font-noto-serif-kr), serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-accent-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 md:px-8;
+  }
+
+  /* 위노뷰티 시그니처: 이중 둥근 카드 */
+  .card-double {
+    @apply relative bg-bg-surface border-2 border-border rounded-card;
+  }
+  .card-double::before {
+    content: '';
+    @apply absolute inset-2 border border-border rounded-card-inner pointer-events-none;
+  }
+
+  /* 위노뷰티 시그니처: 이중 원형 프레임 */
+  .frame-circle {
+    @apply relative inline-block border-2 border-border rounded-full;
+  }
+  .frame-circle::before {
+    content: '';
+    @apply absolute inset-1 border border-border rounded-full pointer-events-none;
+  }
+
+  /* 점선 메뉴 구분 */
+  .menu-divider {
+    border-bottom: 1px dotted var(--color-border-soft);
+  }
+}

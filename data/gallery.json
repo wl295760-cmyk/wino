@@ -1,0 +1,13 @@
+{
+  "items": [
+    { "id": "g1", "category": "EXTENSION", "alt": "볼륨 연장 시술 결과", "tone": 1 },
+    { "id": "g2", "category": "EXTENSION", "alt": "플랫모 클래식 연장", "tone": 2 },
+    { "id": "g3", "category": "PERM", "alt": "시그니처펌 결과", "tone": 3 },
+    { "id": "g4", "category": "EXTENSION", "alt": "더블 연장 시술", "tone": 4 },
+    { "id": "g5", "category": "PERM", "alt": "블랙틴팅 펌", "tone": 5 },
+    { "id": "g6", "category": "EXTENSION", "alt": "마스카라 연장", "tone": 1 },
+    { "id": "g7", "category": "PERM", "alt": "클리닉 펌 결과", "tone": 2 },
+    { "id": "g8", "category": "EXTENSION", "alt": "볼륨 연장 클로즈업", "tone": 3 },
+    { "id": "g9", "category": "EXTENSION", "alt": "포인트 레쉬 시술", "tone": 4 }
+  ]
+}
